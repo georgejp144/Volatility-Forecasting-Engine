@@ -1,8 +1,5 @@
 # Data Folder
 
 
-This directory contains all datasets used by the forecasting engine.
+This directory contains example output data.
 
-## Purpose
-This folder stores:
-- Training data inputs
