@@ -14,9 +14,9 @@ src/
 ├── 01_Global_Feature_Generator.py
 ├── 02_Global_Feature_Validator.py
 ├── 03_Global_Feature_Pruner.py
-└── 04_Global_Ticker_Validation_Scanner.py
-└── 05_Multi_Ticker_Model_Runner.py
-└── 06_Event_Engine.py
+├── 04_Global_Ticker_Validation_Scanner.py
+├── 05_Multi_Ticker_Model_Runner.py
+├── 06_Event_Engine.py
 └── 07_Signal_Engine.py
 
 ```
