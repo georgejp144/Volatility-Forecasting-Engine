@@ -15,7 +15,7 @@ Designed so anyone can execute the full workflow without guessing.
 
 ---
 
-# 1. 📦 Prerequisites
+# 📦 Prerequisites
 
 ### ✔ Install Python 3.9–3.11  
 Any version in this range will work.
@@ -63,7 +63,7 @@ volatility-engine/
 ```
 ---
 
-# 3. ▶️ Step 1 — Generate Global Features
+# ▶️ Step 1 — Generate Global Features
 
 This script takes raw input price/IV data and creates the full feature set:
 - Rolling volatility (1–252 days)
@@ -82,3 +82,67 @@ Outputs:
 ```
 batch_vol_runs/global_features/all_tickers_raw.parquet
 ```
+
+This is the master dataset used everywhere.
+
+---
+
+# 🔍 Step 2 — Validate Global Features
+
+This script checks for structural issues:
+- Missing target values (rv_14_forward)
+- Empty symbols
+- NaNs or invalid values
+- Duplicate rows
+- Date ordering
+- Deterministic feature counts
+
+Run:
+
+```
+python src/02_Global_Feature_Validator.py
+```
+
+Outputs:
+
+```
+batch_vol_runs/global_features/validation_report.txt
+batch_vol_runs/global_features/validation_flags.csv
+```
+
+If validation fails → fix the source data before continuing.
+
+---
+
+# ✂️ Step 3 — Global Feature Pruner
+
+Prunes features once globally, across all tickers:
+
+-Drop high-missing columns
+-Drop zero-variance columns
+-Correlation cluster pruning
+-XGBoost gain scoring
+-Linear coefficients + correlations
+-Economic sign alignment
+-Combined Feature Quality Score (0–100)
+
+Run:
+
+```
+python src/03_Global_Feature_Pruner.py
+```
+
+Outputs:
+
+```
+batch_vol_runs/feature_pruner/
+    pruner_missingness_report.csv
+    pruner_corr_matrix.csv
+    feature_scores.csv
+    selected_features.csv
+    selected_feature_list.txt
+```
+
+selected_feature_list.txt is the REQUIRED feature set for the model runner.
+
+---
