@@ -1,0 +1,7 @@
+numpy>=1.22
+pandas>=1.5
+scikit-learn>=1.2
+xgboost>=1.7
+tensorflow>=2.10
+ta>=0.10.2 
+python-dateutil>=2.8
