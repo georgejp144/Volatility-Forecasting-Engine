@@ -36,7 +36,7 @@ pip install -r requirements.txt
 - ta (indicators)
 
 ---
-
+```
 volatility-engine/
 │
 ├── src/
@@ -60,8 +60,8 @@ volatility-engine/
 │
 └── docs/
     └── how_to_run_volatility.md  ← You are here
-
 ```
+---
 
 # 3. ▶️ Step 1 — Generate Global Features
 
