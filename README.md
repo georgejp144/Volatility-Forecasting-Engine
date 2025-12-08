@@ -47,9 +47,9 @@ Missingness, variance, correlation clustering, XGB gain, economic-sign checks
 4. Universe Eligibility
 Covariance stability (Ledoit-Wolf), sequence viability, latest row completeness
 5. Forecasting Engine
--Cross-sectional XGBoost
--Sequential LSTM
--Regime-aware ensemble weighting
+- Cross-sectional XGBoost
+- Sequential LSTM
+- Regime-aware ensemble weighting
 6. Event & Regime Layer
 Macro windows, vol-structure events, proximity scoring, Mahalanobis drift
 7. Signal & Execution Layer
@@ -123,40 +123,40 @@ Signals are generated when IV–RV mispricing, forecast confidence and market re
 Long Gamma Entry
 
 Enter when:
--IV is below forecast
--Narrow uncertainty band
--RV expected to rise
--Compression environment
--High reliability
--No event window active
+- IV is below forecast
+- Narrow uncertainty band
+- RV expected to rise
+- Compression environment
+- High reliability
+- No event window active
 
 Short Vega Entry
 
 Enter when:
--IV is above forecast upper bound
--Low uncertainty
--High reliability
--No macro event active
+- IV is above forecast upper bound
+- Low uncertainty
+- High reliability
+- No macro event active
 
 Exit Logic
 
 Exit long gamma when any of:
--Expected RV < Current RV
--IV rises above forecast
--Uncertainty widens
--Macro event within 3 days
+- Expected RV < Current RV
+- IV rises above forecast
+- Uncertainty widens
+- Macro event within 3 days
 
 ---  
 
 ## 📊 System Outputs
 
 Daily files include:
--Forecast_RV₁₄ (LSTM & XGB & Ensemble)
--P10 / P50 / P90
--Ensemble_spread & Ensemble_vs_IV
--Model Reliability Score
--Regime & Event flags
--Trade signals (LongGamma, ShortVega)
+- Forecast_RV₁₄ (LSTM & XGB & Ensemble)
+- P10 / P50 / P90
+- Ensemble_spread & Ensemble_vs_IV
+- Model Reliability Score
+- Regime & Event flags
+- Trade signals (LongGamma, ShortVega)
 
 Each ticker generates a CSV:
 
@@ -171,35 +171,35 @@ summary_metrics.csv
 ## 🛡 Risk Controls & Reliability
 
 The engine includes:
--Walk-forward validation
--Regime similarity checks
--Drift scores
--Event blackout windows
--Uncertainty thresholds
--Reliability score gating
+- Walk-forward validation
+- Regime similarity checks
+- Drift scores
+- Event blackout windows
+- Uncertainty thresholds
+- Reliability score gating
 
 Signals only occur when:
--Mispricing exists
--Model has conviction
--Market structure supports hedging
--No major event risk
+- Mispricing exists
+- Model has conviction
+- Market structure supports hedging
+- No major event risk
 
 ---  
 
 ## ⚠️ Limitations
 
 The system is conservative:
--Volatility remains partially unpredictable
--Event shocks & jumps cannot be forecast perfectly
--Execution risk & transaction costs may reduce edge
+- Volatility remains partially unpredictable
+- Event shocks & jumps cannot be forecast perfectly
+- Execution risk & transaction costs may reduce edge
 
 👤 Author
 
 ## 🛠 Technologies Used
 
--Python 3.10+
--NumPy, Pandas, SciKit-Learn, XGBoost, TensorFlow
--Walk-forward validation & event engines
+- Python 3.10+
+- NumPy, Pandas, SciKit-Learn, XGBoost, TensorFlow
+- Walk-forward validation & event engines
 
 ---  
 
