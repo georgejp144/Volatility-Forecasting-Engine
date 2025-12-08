@@ -66,11 +66,11 @@ volatility-engine/
 # 3. ▶️ Step 1 — Generate Global Features
 
 This script takes raw input price/IV data and creates the full feature set:
--Rolling volatility (1–252 days)
--Ratios, spreads, entropy
--Macro indices (VIX, VXN, MOVE)
--Range/ATR/Bandwidth
--Event placeholders
+- Rolling volatility (1–252 days)
+- Ratios, spreads, entropy
+- Macro indices (VIX, VXN, MOVE)
+- Range/ATR/Bandwidth
+- Event placeholders
 
 Run:
 
